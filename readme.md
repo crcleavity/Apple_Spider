@@ -2,9 +2,9 @@
 ## 新增：
 - 将数据进行采集后自动储存在服务器mysql数据库中
 - 引用可视化软件tableau连接mysql数据库进行可视化分析
-![门店区域图](visual\pic1.jpg)
-![门店区域图](visual\pic2.jpg)
-![门店分布图](visual\pic3.jpg)
+![门店区域图](https://github.com/crcleavity/Apple_Spider/blob/main/visual/pic1.jpg)
+![门店区域图](https://github.com/crcleavity/Apple_Spider/blob/main/visual/pic2.jpg)
+![门店分布图](https://github.com/crcleavity/Apple_Spider/blob/main/visual/pic3.jpg)
 
 
 ## Apple店数据采集
