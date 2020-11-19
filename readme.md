@@ -20,9 +20,9 @@
 3. 网站xpath解析  
     整体数据块获得：response.xpath('//*[@id="cnstores"]/div/div/div/div/ul').getall()  
     店铺名：response.xpath('//*[@id="cnstores"]/div/div/div/div/ul/li[1]/a/text()').getall()  
-    店铺地址：response.xpath('//*[@id="cnstores"]/div/div/div/div/ul/li[2]/text()').extract()
-    店铺电话：re.findall(r'400-\d{3}-\d{4}', response.text)
-    店铺链接  response.xpath('//*[@id="cnstores"]/div/div/div/div/ul/li[1]/a/@href').getall()
+    店铺地址：response.xpath('//*[@id="cnstores"]/div/div/div/div/ul/li[2]/text()').extract()  
+    店铺电话：re.findall(r'400-\d{3}-\d{4}', response.text)  
+    店铺链接  response.xpath('//*[@id="cnstores"]/div/div/div/div/ul/li[1]/a/@href').getall()  
 #### 实现方式
 - 直接scrapy shell后代码：
 
