@@ -14,9 +14,10 @@
     店铺地址：response.xpath('//*[@id="cnstores"]/div/div/div/div/ul/li[2]/text()').extract()
     店铺电话：re.findall(r'400-\d{3}-\d{4}', response.text)
     店铺链接  response.xpath('//*[@id="cnstores"]/div/div/div/div/ul/li[1]/a/@href').getall()
+#### 实现方式
+- 直接scrapy shell后代码：
 
-直接scrapy shell后代码：
-
+``` 
 import pandas as pd
 
 doodle = pd.DataFrame(columns = ['shop_name','address','contact','href'])
@@ -30,11 +31,32 @@ del contact[-1]
 
 href = response.xpath('//*[@id="cnstores"]/div/div/div/div/ul/li[1]/a/@href').getall()
 
-
-
-doodle['shop_name'] = shop_name
-doodle['address'] = address
-doodle['contact'] = contact
+doodle['shop_name'] = shop_name  
+doodle['address'] = address  
+doodle['contact'] = contact  
 doodle['href'] = href
 doodle.to_csv('C:/Users/a/OneDrive - arvmontessori.org/桌面/tmp.csv', encoding = 'utf_8_sig)
+```
 
+4. 获得数据后制成表格，输出至shops中  
+5. 对各店数据图片进行采集  
+6. 通过对网站解析，得知图片在https://www.apple.com.cn/retail/{shop_name}/images/hero_large.jpg地址中
+7. 对图片进行下载并保存到本地
+
+#### 实现代码
+
+```import os
+import pandas as pd
+
+shops = pd.read_csv('shops.csv')
+shop_list = {}
+
+for i in range(len(shops)):
+    shop_list[shops['shop_name'][i]] = shops['href'][i]
+
+for k,v in shop_list.items():
+    r = requests.get(v+"images/hero_large.jpg")
+    if r.status_code == 200:
+        open('photos\%s.jpg'%k,'wb').write(r.content)
+        print('%s店的图片下好啦'%k)
+```
