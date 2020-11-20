@@ -15,3 +15,4 @@ class AppleItem(scrapy.Item):
     address = scrapy.Field()
     contact = scrapy.Field()
     href = scrapy.Field()
+    photo = scrapy.Field()

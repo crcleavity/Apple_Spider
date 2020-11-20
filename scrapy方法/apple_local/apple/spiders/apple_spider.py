@@ -16,5 +16,6 @@ class AppleSpiderSpider(scrapy.Spider):
             apple['address'] = shop.xpath('li[2]/text()').get()
             apple['contact'] = shop.re('400-\d{3}-\d{4}')
             apple['href'] = shop.xpath('li[1]/a/@href').get()
+            apple['photo'] = apple['href'] + "images/hero_large.jpg"
             
             yield apple

@@ -12,3 +12,4 @@ for k,v in shop_list.items():
     if r.status_code == 200:
         open('photos\%s.jpg'%k,'wb').write(r.content)
         print('%s店的图片下好啦'%k)
+        
